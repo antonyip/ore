@@ -1,0 +1,39 @@
+{
+  "name": "ore-multi",
+  "version": "1.0.0",
+  "description": "multi miner",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "test": "tsc && node dist/test.js",
+    "harvest": "tsc && cp .env dist/.env && node dist/harvest.js",
+    "harvest:windows": "tsc && xcopy \".\\.env\" \".\\dist\\.env\" /Y && node dist/harvest.js",
+    "consolidate": "tsc && cp \".\\.env\" \".\\dist\\.env\" /Y && node dist/consolidate.js",
+    "consolidate:windows": "tsc && xcopy \".\\.env\" \".\\dist\\.env\" /Y && node dist/consolidate.js",
+    "main": "tsc && cp \".\\.env\" \".\\dist\\.env\" /Y && node dist/index.js",
+    "main:windows": "tsc && xcopy \".\\.env\" \".\\dist\\.env\" /Y && node dist/index.js",
+    "dev": "nodemon --ext \"ts\" --exec \"tsc && cp .env dist/.env && node dist/index.js\"  --exclude node_modules . || exit 1",
+    "dev:windows": "nodemon --ext \"ts\" --exec \"tsc && xcopy \".\\.env\" \".\\dist\\.env\" /Y && node dist/index.js\"  --exclude node_modules . || exit 1",
+    "init": "tsc && cp .env dist/.env && node dist/init.js",
+    "init:windows": "tsc && xcopy \".\\.env\" \".\\dist\\.env\" /Y && node dist/init.js",
+    "tsc": "tsc && cp .env dist/.env",
+    "tsc:windows": "tsc && xcopy \".\\.env\" \".\\dist\\.env\" /Y"
+  },
+  "author": "Kida",
+  "license": "ISC",
+  "dependencies": {
+    "@solana/spl-token": "^0.4.3",
+    "@solana/web3.js": "^1.91.3",
+    "bs58": "^5.0.0",
+    "child_process": "^1.0.2",
+    "dotenv": "^16.4.5",
+    "fs": "^0.0.1-security",
+    "http-proxy": "^1.18.1",
+    "moment": "^2.30.1",
+    "node-cron": "^3.0.3",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/node-cron": "^3.0.11"
+  }
+}
